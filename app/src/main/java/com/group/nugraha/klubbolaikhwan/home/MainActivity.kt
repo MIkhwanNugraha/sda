@@ -1,4 +1,4 @@
-package com.group.nugraha.klubbolaikhwan
+package com.group.nugraha.klubbolaikhwan.home
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
