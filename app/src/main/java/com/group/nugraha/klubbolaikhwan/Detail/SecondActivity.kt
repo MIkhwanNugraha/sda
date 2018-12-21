@@ -30,9 +30,9 @@ class SecondActivity : AppCompatActivity(){
 
     inner class SecondActivityUI(var list : Ini): AnkoComponent<SecondActivity>{
 
-        @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+
         override fun createView(ui: AnkoContext<SecondActivity>) = with(ui) {
-            var position = 0
+
             linearLayout {
                 orientation = LinearLayout.VERTICAL
                 lparams(matchParent, matchParent)
