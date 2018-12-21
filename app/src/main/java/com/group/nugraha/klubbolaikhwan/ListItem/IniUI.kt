@@ -1,8 +1,6 @@
-package com.group.nugraha.klubbolaikhwan.home
+package com.group.nugraha.klubbolaikhwan.ListItem
 
-import android.graphics.drawable.GradientDrawable
 import android.view.Gravity
-import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import com.group.nugraha.klubbolaikhwan.R
@@ -24,6 +22,7 @@ class IniUI : AnkoComponent<ViewGroup>{
             imageView {
                 id = gambarId
                 imageResource = R.drawable.img_madrid
+
             }.lparams(dip(50), dip(50))
 
             textView{

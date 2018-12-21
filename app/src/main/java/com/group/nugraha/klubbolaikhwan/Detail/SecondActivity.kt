@@ -1,11 +1,14 @@
-package com.group.nugraha.klubbolaikhwan.home
+package com.group.nugraha.klubbolaikhwan.Detail
 
+import android.os.Build
 import android.os.Bundle
+import android.support.annotation.RequiresApi
 import android.support.v7.app.AppCompatActivity
 import android.view.Gravity
 import android.view.View
 import android.widget.LinearLayout
 import com.bumptech.glide.Glide
+import com.group.nugraha.klubbolaikhwan.ListItem.IniUI
 import com.group.nugraha.klubbolaikhwan.model.Ini
 import org.jetbrains.anko.*
 
@@ -26,6 +29,8 @@ class SecondActivity : AppCompatActivity(){
     }
 
     inner class SecondActivityUI(var list : Ini): AnkoComponent<SecondActivity>{
+
+        @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
         override fun createView(ui: AnkoContext<SecondActivity>) = with(ui) {
             var position = 0
             linearLayout {
@@ -51,8 +56,8 @@ class SecondActivity : AppCompatActivity(){
                 textView {
                     id = keteranganID
                     text = list.keteranganklub
-                    textAlignment = View.TEXT_ALIGNMENT_CENTER
                     gravity = Gravity.CENTER_HORIZONTAL
+                    textAlignment = View.TEXT_ALIGNMENT_CENTER
                     padding = dip(10)
                 }
             }

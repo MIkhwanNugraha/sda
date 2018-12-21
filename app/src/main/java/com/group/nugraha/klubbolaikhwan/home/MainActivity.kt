@@ -7,7 +7,7 @@ import android.util.Log
 import android.widget.LinearLayout
 import android.widget.Toast
 import com.group.nugraha.klubbolaikhwan.Adapter.IniAdapter
-import com.group.nugraha.klubbolaikhwan.R
+import com.group.nugraha.klubbolaikhwan.Detail.SecondActivity
 import com.group.nugraha.klubbolaikhwan.R.array.*
 import com.group.nugraha.klubbolaikhwan.model.Ini
 import org.jetbrains.anko.*
@@ -29,22 +29,23 @@ class MainActivity : AppCompatActivity() {
 
         override fun createView(ui: AnkoContext<MainActivity>) = with(ui) {
 
-        initData()
+            initData()
 
-        verticalLayout{
-            lparams(matchParent, matchParent)
-            orientation = LinearLayout.VERTICAL
-
-            recyclerView {
+            verticalLayout {
                 lparams(matchParent, matchParent)
+                orientation = LinearLayout.VERTICAL
+
+                recyclerView {
+                    lparams(matchParent, matchParent)
 
 
 
-                layoutManager = LinearLayoutManager(context)
-                adapter = IniAdapter(iniItem) {
-                    startActivity<SecondActivity>(SecondActivity.POSITIONEXTRA to it)
-                    val toast = Toast.makeText(context, it.namaklub, Toast.LENGTH_LONG)
-                    toast.show()
+                    layoutManager = LinearLayoutManager(context)
+                    adapter = IniAdapter(iniItem) {
+                        startActivity<SecondActivity>(SecondActivity.POSITIONEXTRA to it)
+                        val toast = Toast.makeText(context, it.namaklub, Toast.LENGTH_LONG)
+                        toast.show()
+                    }
                 }
             }
         }
