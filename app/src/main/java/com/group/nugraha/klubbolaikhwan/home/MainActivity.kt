@@ -4,15 +4,14 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
+import android.widget.LinearLayout
 import android.widget.Toast
 import com.group.nugraha.klubbolaikhwan.Adapter.IniAdapter
 import com.group.nugraha.klubbolaikhwan.R
 import com.group.nugraha.klubbolaikhwan.R.array.*
 import com.group.nugraha.klubbolaikhwan.model.Ini
-import org.jetbrains.anko.linearLayout
-import org.jetbrains.anko.matchParent
+import org.jetbrains.anko.*
 import org.jetbrains.anko.recyclerview.v7.recyclerView
-import org.jetbrains.anko.verticalLayout
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,13 +19,21 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        MainActivityUI().setContentView(this)
+
+    }
+
+
+
+    inner class MainActivityUI : AnkoComponent<MainActivity> {
+
+        override fun createView(ui: AnkoContext<MainActivity>) = with(ui) {
 
         initData()
 
         verticalLayout{
             lparams(matchParent, matchParent)
-            orientation = linearLayout.VERTICAL
+            orientation = LinearLayout.VERTICAL
 
             recyclerView {
                 lparams(matchParent, matchParent)
