@@ -10,7 +10,7 @@
         <item>AC milan</item>
         <item>Manchester City FC</item>
         <item>Barcelona FC</item>
-    </string-array>i
+    </string-array>
 
     <array name="klub_gambar">
         <item>@drawable/img_madrid</item>

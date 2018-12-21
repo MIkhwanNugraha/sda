@@ -3,6 +3,7 @@ package com.group.nugraha.klubbolaikhwan.home
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.widget.Toast
 import com.group.nugraha.klubbolaikhwan.R
 import org.jetbrains.anko.linearLayout
 import org.jetbrains.anko.matchParent
@@ -25,9 +26,14 @@ class MainActivity : AppCompatActivity() {
 
             recyclerView {
                 lparams(matchParent, matchParent)
+
+
+
                 layoutManager = LinearLayoutManager(context)
                 adapter = IniAdapter(iniItem){
-                    //intent
+                    startActivity<SecondActivity>(SecondActivity.POSITIONEXTRA)
+                    val toast = Toast.makeText(context, it.name, Toast.LENGTH_LONG)
+                    toast.show()
                 }
             }
         }
