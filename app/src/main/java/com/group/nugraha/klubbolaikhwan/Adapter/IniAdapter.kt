@@ -1,4 +1,4 @@
-package com.group.nugraha.klubbolaikhwan.home
+package com.group.nugraha.klubbolaikhwan.Adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.View
@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import com.group.nugraha.klubbolaikhwan.home.IniUI
+import com.group.nugraha.klubbolaikhwan.model.Ini
 import kotlinx.android.extensions.LayoutContainer
 import org.jetbrains.anko.AnkoContext
 
@@ -18,8 +20,9 @@ class IniAdapter (var list : MutableList<Ini>, var listener: (Ini) -> Unit )
 
     override fun getItemCount(): Int = list.size
 
-    override fun onBindViewHolder(holder: IniAdapter.IniViewHolder, position: Int) {
-        
+    override fun onBindViewHolder(holder: IniViewHolder, position: Int) {
+        holder.bindItem(list[position], listener)
+
     }
 
     inner class IniViewHolder(itamView: View) : RecyclerView.ViewHolder(itamView){
@@ -32,9 +35,9 @@ class IniAdapter (var list : MutableList<Ini>, var listener: (Ini) -> Unit )
         }
 
         fun bindItem (items : Ini, listener : (Ini) -> Unit){
-            textView.text = items.name
-            Glide.with(itemView.context.load(items.image).into(imageView)
-                itamView.setOnClickListener{
+            textView.text = items.namaklub
+            Glide.with(itemView.context).load(items.logoklub).into(imageView)
+            itemView.setOnClickListener{
                 listener(items)
             }
         }

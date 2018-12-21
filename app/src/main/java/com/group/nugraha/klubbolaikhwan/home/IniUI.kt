@@ -23,7 +23,7 @@ class IniUI : AnkoComponent<ViewGroup>{
 
             imageView {
                 id = gambarId
-                imageResource = R.drawable.img_realmadrid
+                imageResource = R.drawable.img_madrid
             }.lparams(dip(50), dip(50))
 
             textView{
