@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">KlubBolaIkhwan</string>
+    <string-array name="klub_nama">
+        <item>Real Madrid FC</item>
+        <item>Barito Putera FC, The Real Champ</item>
+        <item>Manchester United FC</item>
+        <item>Arsenal FC</item>
+        <item>Bayern Munchen FC</item>
+        <item>Chelsea FC</item>
+        <item>AC milan</item>
+        <item>Manchester City FC</item>
+        <item>Barcelona FC</item>
+    </string-array>i
+
+    <array name="klub_gambar">
+        <item>@drawable/img_madrid</item>
+        <item>@drawable/img_barito</item>
+        <item>@drawable/img_mu</item>
+        <item>@drawable/img_arsenal</item>
+        <item>@drawable/img_bayern</item>
+        <item>@drawable/img_chelsea</item>
+        <item>@drawable/img_acm</item>
+        <item>@drawable/img_city</item>
+        <item>@drawable/img_barca</item>
+    </array>
 </resources>
