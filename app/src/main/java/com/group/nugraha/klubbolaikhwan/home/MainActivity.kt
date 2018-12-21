@@ -43,8 +43,9 @@ class MainActivity : AppCompatActivity() {
                     layoutManager = LinearLayoutManager(context)
                     adapter = IniAdapter(iniItem) {
                         startActivity<SecondActivity>(SecondActivity.POSITIONEXTRA to it)
-                        val toast = Toast.makeText(context, it.namaklub, Toast.LENGTH_LONG)
-                        toast.show()
+                        //val toast = Toast.makeText(context, it.namaklub, Toast.LENGTH_LONG)
+                        //toast.show()
+                        longToast(it.namaklub)
                     }
                 }
             }
@@ -61,7 +62,7 @@ class MainActivity : AppCompatActivity() {
             iniItem.add(Ini(namatim[ii], gambarklub.getResourceId(ii,0), keterangan[ii]))
         }
 
-        Log.e("info", iniItem.size.toString())
+        
 
         gambarklub.recycle()
     }
