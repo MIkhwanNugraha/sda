@@ -3,9 +3,7 @@ package com.group.nugraha.klubbolaikhwan.home
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.widget.LinearLayout
-import android.widget.Toast
 import com.group.nugraha.klubbolaikhwan.Adapter.IniAdapter
 import com.group.nugraha.klubbolaikhwan.Detail.SecondActivity
 import com.group.nugraha.klubbolaikhwan.R.array.*
@@ -62,7 +60,7 @@ class MainActivity : AppCompatActivity() {
             iniItem.add(Ini(namatim[ii], gambarklub.getResourceId(ii,0), keterangan[ii]))
         }
 
-        
+
 
         gambarklub.recycle()
     }
