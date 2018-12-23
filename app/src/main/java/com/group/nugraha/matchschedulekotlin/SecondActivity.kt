@@ -3,13 +3,13 @@ package com.group.nugraha.matchschedulekotlin
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 
-class FirstActivity : AppCompatActivity() {
-    private var name: String = ""
+class SecondActivity : AppCompatActivity() {
+    private var name2: String = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         val inte = intent
-        name = inte.getStringExtra("key")
+        name2 = inte.getStringExtra("key2")
 
     }
 }

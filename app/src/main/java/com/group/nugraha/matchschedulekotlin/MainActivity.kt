@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
                     backgroundColor = ContextCompat.getColor(context,colorAccent)
                     textColor = Color.WHITE
                     setOnClickListener {
-                        startActivity<FirstActivity>(FirstActivity.POSITIONEXTRA to it)
+                        startActivity<FirstActivity>("key" to it)
                     }
                 }.lparams(matchParent){
                     topMargin = dip(5)
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
                     backgroundColor = ContextCompat.getColor(context,colorAccent)
                     textColor = Color.WHITE
                     setOnClickListener {
-                        startActivity<SecondActivity>()
+                        startActivity<SecondActivity>("key2" to it)
                     }
                 }.lparams(matchParent){
                     topMargin = dip(5)
