@@ -121,7 +121,7 @@
                             android:weightSum="1">
 
                         <TableRow
-                                android:background="@drawable/background_square"
+                                android:background="@drawable/latarbelakang"
                                 android:gravity="center">
 
                             <TextView
