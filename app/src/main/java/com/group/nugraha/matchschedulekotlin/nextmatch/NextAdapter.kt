@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.group.nugraha.matchschedulekotlin.R
-
 import com.group.nugraha.matchschedulekotlin.model.EventsItem
 import java.text.SimpleDateFormat
 import java.util.*
@@ -24,7 +23,7 @@ class NextAdapter (private val context: Context?, private val events: List<Event
 
     override fun getItemCount(): Int = events.size
 
-    @RequiresApi(Build.VERSION_CODES.0)
+    //@RequiresApi(Build.VERSION_CODES.0)
     override fun onBindViewHolder(p0: NextHolder, p1: Int) {
         p0.bindItem(events [p1])
         //holder.itemView.setOnClickListener{
@@ -41,7 +40,7 @@ class NextAdapter (private val context: Context?, private val events: List<Event
         private val homeScore = view.findViewById<TextView>(R.id.strHomeScore)
         private val awayScore = view.findViewById<TextView>(R.id.strAwayScore)
 
-        @RequiresApi(Build.VERSION_CODES.0)
+        //@RequiresApi(Build.VERSION_CODES.0)
         fun bindItem(events: EventsItem){
             val formatDate = SimpleDateFormat("yyy-MM-dd", Locale.getDefault())
             val date = formatDate.parse(events.dateEvent)

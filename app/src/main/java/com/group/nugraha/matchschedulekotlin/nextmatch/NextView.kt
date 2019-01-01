@@ -6,4 +6,7 @@ interface NextView {
     fun showLoading()
     fun hideLOading()
     fun showEventList(data:List<EventsItem>)
+    companion object {
+        val LEAGUE_ID = "4328"
+    }
 }
