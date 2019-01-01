@@ -43,7 +43,7 @@
 
                 android:paddingTop="10dp"
 
-                tools:text="Minggu, 02 Juli 2018" />
+                tools:text="Senin, 01 Maret 2024" />
 
 
 
@@ -117,7 +117,7 @@
 
                         android:text="@string/vs"
 
-                        android:textColor="@color/dark_green"
+                        android:textColor="@color/dark_yellow"
 
                         android:textSize="20sp" />
 
