@@ -26,11 +26,10 @@ class NextAdapter (private val context: Context?, private val events: List<Event
     //@RequiresApi(Build.VERSION_CODES.0)
     override fun onBindViewHolder(p0: NextHolder, p1: Int) {
         p0.bindItem(events [p1])
-        //holder.itemView.setOnClickListener{
-            //context?.startActivity<DetailClub>(
-            //    DetailClub.ID_EVENTS to events[p1].idEvent
-          //  )
-        //}
+        p0.itemView.setOnClickListener{
+            context?.startActivity<NextDetailActivity>(
+                NextDetailActivity.ID_EVENTS to events[p1].idEvent)
+        }
     }
 
     class NextHolder(view:View) :RecyclerView.ViewHolder(view){
