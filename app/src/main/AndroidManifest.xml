@@ -18,6 +18,7 @@
         </activity>
         <activity android:name=".FirstActivity"/>
         <activity android:name=".nextmatch.SecondActivity"/>
+        <activity android:name=".nextmatch.NextDetailActivity"/>
     </application>
 
 </manifest>
