@@ -59,7 +59,6 @@ class NextDetailActivity : AppCompatActivity(), NextView {
         events = data[0]
 
         txt_home_name_club.text = nameKandang
-
-        txt_away_name_club.text = nameTandang}
-
+        txt_away_name_club.text = nameTandang
+    }
 }
