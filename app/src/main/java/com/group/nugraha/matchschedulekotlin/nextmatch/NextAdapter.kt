@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.group.nugraha.matchschedulekotlin.R
 import com.group.nugraha.matchschedulekotlin.model.EventsItem
+import org.jetbrains.anko.startActivity
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -28,7 +29,8 @@ class NextAdapter (private val context: Context?, private val events: List<Event
         p0.bindItem(events [p1])
         p0.itemView.setOnClickListener{
             context?.startActivity<NextDetailActivity>(
-                NextDetailActivity.ID_EVENTS to events[p1].idEvent)
+                NextDetailActivity.ID_EVENTS to events[p1].idEvent
+                )
         }
     }
 
