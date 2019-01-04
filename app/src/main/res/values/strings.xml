@@ -1,4 +1,69 @@
 <resources>
     <string name="app_name">Match Schedule Kotlin</string>
     <string name="vs">VS</string>
+    <string-array name="club_name">
+        <item>Real Madrid FC</item>
+        <item>Barito Putera FC, The Real Champ</item>
+        <item>Manchester United FC</item>
+        <item>Arsenal FC</item>
+        <item>Bayern Munchen FC</item>
+        <item>Chelsea FC</item>
+        <item>AC milan</item>
+        <item>Manchester City FC</item>
+        <item>Barcelona FC</item>
+    </string-array>
+
+    <string-array name="league_id">
+
+        <item>4328</item>
+
+        <item>4335</item>
+
+        <item>4332</item>
+
+        <item>4334</item>
+
+        <item>4331</item>
+
+        <item>4429</item>
+
+    </string-array>
+
+
+
+    <string-array name="league">
+
+        <item>English Premier League</item>
+
+        <item>English League Championship</item>
+
+        <item>German Bundesliga</item>
+
+        <item>Italian Serie A</item>
+
+        <item>French Ligue 1</item>
+
+        <item>Spanish La Liga</item>
+
+    </string-array>
+
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <string name="title_prev_match">Prev Match</string>
+
+    <string name="title_next_match">Next Match</string>
+
+    <string name="title_notifications">Notifications</string>
+
+    <string-array name="description">
+        <item>Ini tim favorit saya, juara 100 kali liga champions. Royal Madrid Football Club, umumnya dikenal sebagai Real Madrid, adalah klub sepak bola profesional yang berbasis di Madrid, Spanyol.Didirikan pada tahun 1902 sebagai Madrid Football Club, secara tradisional mengenakan kostum kandang putih</item>
+        <item>Ini adalah tim juara dunia antar klub tahun 2039, mohon doanya semoga laskar Antasari ini maju terus dan menang melawan tim Malaysia dan Singapura</item>
+        <item>Manchester United FC, Ini tim kesukaan sahabat saya sesama pejuang. Tim ini adalah sebuah klub sepak bola profesional Inggris yang berbasis di Old Trafford, Manchester Raya, yang bermain di Liga Inggris. Didirikan sebagai Newton Heath LYR Football Club pada tahun 1878, klub ini berganti nama menjadi Manchester United pada 1902 dan pindah ke Old Trafford pada tahun 1910.</item>
+        <item> Dulu saya suka, setelah Thierry Henry pensiun, saya beralih ke Real Madrid </item>
+        <item>Di semifinal liga Champions, sering kalah dari Real Madrid</item>
+        <item>Besar oleh Jose Mourinho, pelatih yang memenangkan Real Madrid</item>
+        <item>Besar oleh Carlo Ancelotti, pelatih yang membawa Real Madrid meraih La Decima</item>
+        <item>Tim ini nggak disukai oleh sahabat saya</item>
+        <item>Musuh abadi Real Madrid, adalah klub sepak bola profesional yang berbasis di Barcelona, Catalunya, Spanyol.Didirikan pada tahun 1899 oleh sekelompok pemain Swiss, Inggris dan Catalan yang dipimpin oleh Joan Gamper, klub telah menjadi simbol budaya Catalan dan Catalanisme, yang mempunyai motto "Més que un club" (Lebih dari sebuah klub)</item>
+    </string-array>
 </resources>

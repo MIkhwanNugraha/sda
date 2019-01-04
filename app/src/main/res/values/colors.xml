@@ -4,5 +4,7 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="dark_yellow">#d8a21b</color>
-    <color name="latarbelakangwarna">#006dd81b</color>
+    <color name="background">#009688</color>
+    <color name="backgroundSoft">#4DB6AC</color>
+    <color name="backgroundAccent">#F57F17</color>
 </resources>
