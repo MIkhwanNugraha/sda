@@ -10,6 +10,7 @@ import com.google.gson.Gson
 import com.group.nugraha.matchschedulekotlin.R
 import com.group.nugraha.matchschedulekotlin.api.ApiRepository
 import com.group.nugraha.matchschedulekotlin.model.EventsItem
+import com.group.nugraha.matchschedulekotlin.model.TeamsItem
 
 import com.group.nugraha.matchschedulekotlin.util.invisible
 import com.group.nugraha.matchschedulekotlin.util.visible
@@ -64,6 +65,10 @@ class SecondActivity : AppCompatActivity(), NextView {
         eventsNext.clear()
         eventsNext.addAll(data)
         nAdapter.notifyDataSetChanged()
+    }
+
+    override fun showTeamList(data: List<TeamsItem>?) {
+
     }
 
 }

@@ -7,11 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.group.nugraha.matchschedulekotlin.R
+import com.group.nugraha.matchschedulekotlin.model.TeamsItem
 
-class NextDetailAdapter (private val context: Context, private val item: List<items>,
+class NextDetailAdapter (private val context: Context, private val item: List<TeamsItem>,
 
-                   private val listener: (items) -> Unit)
+                         private val listener: (TeamsItem) -> Unit)
 
     : RecyclerView.Adapter<NextDetailAdapter.ViewHolder>() {
 
@@ -21,17 +23,17 @@ class NextDetailAdapter (private val context: Context, private val item: List<it
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        val name = view.findViewById<TextView>(R.id.txt_club)
+        val name = view.findViewById<TextView>(R.id.txt_away_name_club)
 
-        private val image = view.findViewById<ImageView>(R.id.img_club)
+        private val image = view.findViewById<ImageView>(R.id.img_away)
 
 
 
-        fun bindItem(item: items, listener: (items) -> Unit) {
+        fun bindItem(item: TeamsItem, listener: (TeamsItem) -> Unit) {
 
-            name.text = item.name
+            name.text = item.teamName
 
-            Glide.with(itemView.context).load(item.Image).into(image)
+            Glide.with(itemView.context).load(item.strTeamBadge).into(image)
 
             itemView.setOnClickListener{
 

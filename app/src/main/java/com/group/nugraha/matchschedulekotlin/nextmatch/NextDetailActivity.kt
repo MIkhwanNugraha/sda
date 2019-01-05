@@ -9,6 +9,7 @@ import com.google.gson.Gson
 import com.group.nugraha.matchschedulekotlin.R
 import com.group.nugraha.matchschedulekotlin.api.ApiRepository
 import com.group.nugraha.matchschedulekotlin.model.EventsItem
+import com.group.nugraha.matchschedulekotlin.model.TeamsItem
 import com.group.nugraha.matchschedulekotlin.util.invisible
 import com.group.nugraha.matchschedulekotlin.util.visible
 import kotlinx.android.synthetic.main.layoutnextdetail.*
@@ -23,6 +24,7 @@ class NextDetailActivity : AppCompatActivity(), NextView {
     private lateinit var progresBar: ProgressBar
     private lateinit var presenternd: NextDetailPresenter
     private lateinit var events: EventsItem
+    private lateinit var teams: TeamsItem
 
     companion object {
         const val ID_EVENTS = "id_events"
@@ -54,9 +56,6 @@ class NextDetailActivity : AppCompatActivity(), NextView {
         PenempelSimbol().loadSimbol(idKandang, img_home)
         PenempelSimbol().loadSimbol(idTandang, img_away)
     }
-    override fun showLoading() {
-        progresBar.visible()
-    }
 
     override fun hideLOading() {
         progresBar.invisible()
@@ -73,5 +72,14 @@ class NextDetailActivity : AppCompatActivity(), NextView {
 
         txt_home_formation.text = events.strHomeFormation?.replace(";", "\n")
         txt_away_formation.text = events.strAwayFormation?.replace(";", "\n")
+    }
+
+    override fun showLoading() {
+        progresBar.visible()
+    }
+
+
+    override fun showTeamList(data: List<TeamsItem>?) {
+
     }
 }
