@@ -41,6 +41,8 @@ class NextDetailActivity : AppCompatActivity(), NextView {
 
         val intent = intent
         idEvent = intent.getStringExtra(ID_EVENTS)
+        idTandang = intent.getStringExtra(ID_TANDANG)
+        idKandang = intent
 
         val request = ApiRepository()
         val gson = Gson()
