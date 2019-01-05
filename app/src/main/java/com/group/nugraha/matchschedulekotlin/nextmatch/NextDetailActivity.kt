@@ -50,6 +50,9 @@ class NextDetailActivity : AppCompatActivity(), NextView {
         val gson = Gson()
         presenternd = NextDetailPresenter(this, request, gson)
         presenternd.getLookUpEvents(idEvent)
+
+        PenempelSimbol().loadSimbol(idKandang, img_home)
+        PenempelSimbol().loadSimbol(idTandang, img_away)
     }
     override fun showLoading() {
         progresBar.visible()
