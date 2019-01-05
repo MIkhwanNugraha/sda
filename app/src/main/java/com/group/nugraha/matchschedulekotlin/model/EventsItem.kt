@@ -53,7 +53,28 @@ data class EventsItem (
 
     @SerializedName("strHomeTeam")
 
-    val strHomeTeam: String?=null
+    val strHomeTeam: String?=null,
+
+    @SerializedName("strHomeLineupDefense")
+
+    val strHomeLineupDefense: String?,
+
+
+
+    @SerializedName("strAwayLineupDefense")
+
+    val strAwayLineupDefense: String?,
+
+    @SerializedName("strAwayFormation")
+
+    val strAwayFormation: String?,
+
+
+
+    @SerializedName("strHomeFormation")
+
+    val strHomeFormation: String?
+
 
 
     )

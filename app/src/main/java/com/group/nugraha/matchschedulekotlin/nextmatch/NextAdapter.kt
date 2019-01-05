@@ -22,14 +22,20 @@ class NextAdapter (private val context: Context?, private val events: List<Event
         NextHolder(LayoutInflater.from(context).inflate(R.layout.list_item, p0, false))
 
 
-    override fun getItemCount(): Int = events.size
+    override fun getItemCount(): Int {
+        return events.size
+    }
 
     //@RequiresApi(Build.VERSION_CODES.0)
     override fun onBindViewHolder(p0: NextHolder, p1: Int) {
         p0.bindItem(events [p1])
         p0.itemView.setOnClickListener{
             context?.startActivity<NextDetailActivity>(
-                NextDetailActivity.ID_EVENTS to events[p1].idEvent
+                NextDetailActivity.ID_EVENTS to events[p1].idEvent,
+                NextDetailActivity.ID_KANDANG to events[p1].idHomeTeam,
+                NextDetailActivity.ID_TANDANG to events[p1].idAwayTeam,
+                NextDetailActivity.KANDANG_NAME to events[p1].strHomeTeam,
+                NextDetailActivity.TANDANG_NAME to events[p1].strAwayTeam
                 )
         }
     }

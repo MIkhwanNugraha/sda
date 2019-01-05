@@ -42,7 +42,9 @@ class NextDetailActivity : AppCompatActivity(), NextView {
         val intent = intent
         idEvent = intent.getStringExtra(ID_EVENTS)
         idTandang = intent.getStringExtra(ID_TANDANG)
-        idKandang = intent
+        idKandang = intent.getStringExtra(ID_KANDANG)
+        nameKandang = intent.getStringExtra(KANDANG_NAME)
+        nameTandang = intent.getStringExtra(TANDANG_NAME)
 
         val request = ApiRepository()
         val gson = Gson()
@@ -62,5 +64,11 @@ class NextDetailActivity : AppCompatActivity(), NextView {
 
         txt_home_name_club.text = nameKandang
         txt_away_name_club.text = nameTandang
+
+        txt_home_defense.text = events.strHomeLineupDefense?.replace(";", "\n")
+        txt_away_defense.text = events.strAwayLineupDefense?.replace(";", "\n")
+
+        txt_home_formation.text = events.strHomeFormation?.replace(";", "\n")
+        txt_away_formation.text = events.strAwayFormation?.replace(";", "\n")
     }
 }
