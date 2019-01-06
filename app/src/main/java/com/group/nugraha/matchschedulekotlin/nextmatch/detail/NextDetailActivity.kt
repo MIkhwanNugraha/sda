@@ -61,6 +61,7 @@ class NextDetailActivity : AppCompatActivity(), NextView {
 
     override fun showEventList(data: List<EventsItem>, homeTeamsItem: TeamsItem) {
         val events = data.get(0)
+        val homeTeam
 
         txt_home_name_club.text = nameKandang
         txt_away_name_club.text = nameTandang
