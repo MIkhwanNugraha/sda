@@ -53,8 +53,7 @@ class NextDetailActivity : AppCompatActivity(), NextView {
         presenternd = NextDetailPresenter(this, request, gson)
         presenternd.getLookUpEvents(idEvent)
 
-        PenempelSimbol().loadSimbol(idKandang, img_home)
-        PenempelSimbol().loadSimbol(idTandang, img_away)
+        
     }
 
     override fun hideLOading() {
