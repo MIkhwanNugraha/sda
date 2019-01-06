@@ -11,9 +11,10 @@ import com.group.nugraha.matchschedulekotlin.model.TeamsItem
 import com.group.nugraha.matchschedulekotlin.nextmatch.NextView
 import com.group.nugraha.matchschedulekotlin.util.invisible
 import com.group.nugraha.matchschedulekotlin.util.visible
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.layoutnextdetail.*
 
-class NextDetailActivity : AppCompatActivity(), NextView {
+class NextDetailActivity : AppCompatActivity(), NextDetailView {
     var idEvent: String = ""
     var idTandang: String = ""
     var idKandang: String = ""
@@ -22,7 +23,7 @@ class NextDetailActivity : AppCompatActivity(), NextView {
 
     private lateinit var progresBar: ProgressBar
     private lateinit var presenternd: NextDetailPresenter
-    private lateinit var events: EventsItem
+    private lateinit var event: EventsItem
     private lateinit var teams: TeamsItem
 
     companion object {
@@ -50,19 +51,22 @@ class NextDetailActivity : AppCompatActivity(), NextView {
         val request = ApiRepository()
         val gson = Gson()
         presenternd = NextDetailPresenter(this, request, gson)
-        presenternd.getEventDetail(idEvent)
+        presenternd.getEventDetail(idEvent, idKandang, idTandang)
 
 
     }
 
-    override fun hideLOading() {
+    override fun sembunyikanLoading() {
         progresBar.invisible()
     }
 
-    override fun showEventList(data: List<EventsItem>, homeTeamsItem: TeamsItem) {
+    override fun showDetail(data: List<EventsItem>, homeTeamsItem: List<TeamsItem>, awayTeamsItem: List<TeamsItem>) {
         val events = data.get(0)
-        val homeTeam
+        val homeTeamhh = homeTeamsItem.get(0)
+        val awayTeam = awayTeamsItem.get(0)
 
+        Picasso.get().load(homeTeamhh.strTeamBadge).into(img_home)
+        Picasso.get().load(awayTeam.strTeamBadge).into(img_away)
         txt_home_name_club.text = nameKandang
         txt_away_name_club.text = nameTandang
 
@@ -71,14 +75,14 @@ class NextDetailActivity : AppCompatActivity(), NextView {
 
         txt_home_formation.text = events.strHomeFormation?.replace(";", "\n")
         txt_away_formation.text = events.strAwayFormation?.replace(";", "\n")
+
+        sembunyikanLoading()
     }
 
-    override fun showLoading() {
+    override fun tunjukkanLoading() {
         progresBar.visible()
     }
 
 
-    override fun showTeamList(data: List<TeamsItem>?) {
 
-    }
 }

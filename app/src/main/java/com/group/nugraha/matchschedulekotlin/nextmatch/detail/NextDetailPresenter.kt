@@ -21,7 +21,7 @@ class NextDetailPresenter (private val view: NextDetailView,
 
         GlobalScope.launch(context.main) {
                 val matchDetail = gson.fromJson(apiRepository
-                    .doRequest(ObjekSportDB.getLookUpNDP(eventId)).await(),
+                    .doRequest(ObjekSportDB.getLookUpNDP(eventId)),
                     EventsResponse::class.java)
 
 
@@ -34,7 +34,7 @@ class NextDetailPresenter (private val view: NextDetailView,
                     TeamResponse::class.java)
 
 
-                view.showDetail(matchDetail.Events, homeTeam.await().teams, awayTeam.await().teams)
+                view.showDetail(matchDetail.Events, homeTeam.teams, awayTeam.teams)
                 view.sembunyikanLoading()
 
 
