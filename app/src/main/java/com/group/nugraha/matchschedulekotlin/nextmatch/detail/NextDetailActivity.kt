@@ -50,7 +50,7 @@ class NextDetailActivity : AppCompatActivity(), NextView {
         val request = ApiRepository()
         val gson = Gson()
         presenternd = NextDetailPresenter(this, request, gson)
-        presenternd.getLookUpEvents(idEvent)
+        presenternd.getEventDetail(idEvent)
 
 
     }
