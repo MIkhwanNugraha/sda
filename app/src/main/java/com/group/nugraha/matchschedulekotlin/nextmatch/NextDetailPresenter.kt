@@ -4,6 +4,7 @@ import com.google.gson.Gson
 import com.group.nugraha.matchschedulekotlin.api.ApiRepository
 import com.group.nugraha.matchschedulekotlin.api.ObjekSportDB
 import com.group.nugraha.matchschedulekotlin.model.EventsResponse
+import com.group.nugraha.matchschedulekotlin.sambungan.NextView
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 

@@ -11,6 +11,7 @@ import com.group.nugraha.matchschedulekotlin.R
 import com.group.nugraha.matchschedulekotlin.api.ApiRepository
 import com.group.nugraha.matchschedulekotlin.model.EventsItem
 import com.group.nugraha.matchschedulekotlin.model.TeamsItem
+import com.group.nugraha.matchschedulekotlin.sambungan.NextView
 
 import com.group.nugraha.matchschedulekotlin.util.invisible
 import com.group.nugraha.matchschedulekotlin.util.visible
