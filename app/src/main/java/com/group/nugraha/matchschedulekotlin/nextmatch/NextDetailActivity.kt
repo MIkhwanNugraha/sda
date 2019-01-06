@@ -1,6 +1,6 @@
 package com.group.nugraha.matchschedulekotlin.nextmatch
 
-import android.app.Service
+
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
@@ -16,6 +16,7 @@ import com.group.nugraha.matchschedulekotlin.model.EventsItem
 import com.group.nugraha.matchschedulekotlin.model.TeamResponse
 import com.group.nugraha.matchschedulekotlin.model.TeamsItem
 import com.group.nugraha.matchschedulekotlin.sambungan.NextView
+import com.group.nugraha.matchschedulekotlin.sambungan.Service
 import com.group.nugraha.matchschedulekotlin.util.invisible
 import com.group.nugraha.matchschedulekotlin.util.visible
 import kotlinx.android.synthetic.main.layoutnextdetail.*
@@ -28,7 +29,7 @@ import rx.schedulers.Schedulers
 class NextDetailActivity : AppCompatActivity(), NextView {
     var idEvent: String = ""
     var idTandang: String = ""
-    var idKandang: String = ""
+    var idHomeTeam: String = ""
     var nameKandang: String = ""
     var nameTandang: String = ""
 
@@ -56,7 +57,7 @@ class NextDetailActivity : AppCompatActivity(), NextView {
         val intent = intent
         idEvent = intent.getStringExtra(ID_EVENTS)
         idTandang = intent.getStringExtra(ID_TANDANG)
-        idKandang = intent.getStringExtra(ID_KANDANG)
+        idHomeTeam = intent.getStringExtra(ID_KANDANG)
         nameKandang = intent.getStringExtra(KANDANG_NAME)
         nameTandang = intent.getStringExtra(TANDANG_NAME)
 
@@ -79,7 +80,7 @@ class NextDetailActivity : AppCompatActivity(), NextView {
         val service: Service = retrofit.create(
             Service::class.java)
 
-        service.getTeam(idKandang)
+        service.getTeam(idHomeTeam)
 
             .subscribeOn(Schedulers.newThread())
 
