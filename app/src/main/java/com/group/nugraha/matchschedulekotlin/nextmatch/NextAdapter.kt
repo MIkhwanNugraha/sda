@@ -1,8 +1,6 @@
 package com.group.nugraha.matchschedulekotlin.nextmatch
 
 import android.content.Context
-import android.os.Build
-import android.support.annotation.RequiresApi
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.group.nugraha.matchschedulekotlin.R
 import com.group.nugraha.matchschedulekotlin.model.EventsItem
+import com.group.nugraha.matchschedulekotlin.nextmatch.detail.NextDetailActivity
 import org.jetbrains.anko.startActivity
 import java.text.SimpleDateFormat
 import java.util.*

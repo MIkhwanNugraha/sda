@@ -1,8 +1,6 @@
-package com.group.nugraha.matchschedulekotlin.nextmatch
+package com.group.nugraha.matchschedulekotlin.nextmatch.detail
 
-import android.os.Build
 import android.os.Bundle
-import android.support.annotation.RequiresApi
 import android.support.v7.app.AppCompatActivity
 import android.widget.ProgressBar
 import com.google.gson.Gson
@@ -10,6 +8,7 @@ import com.group.nugraha.matchschedulekotlin.R
 import com.group.nugraha.matchschedulekotlin.api.ApiRepository
 import com.group.nugraha.matchschedulekotlin.model.EventsItem
 import com.group.nugraha.matchschedulekotlin.model.TeamsItem
+import com.group.nugraha.matchschedulekotlin.nextmatch.NextView
 import com.group.nugraha.matchschedulekotlin.util.invisible
 import com.group.nugraha.matchschedulekotlin.util.visible
 import kotlinx.android.synthetic.main.layoutnextdetail.*
@@ -53,15 +52,15 @@ class NextDetailActivity : AppCompatActivity(), NextView {
         presenternd = NextDetailPresenter(this, request, gson)
         presenternd.getLookUpEvents(idEvent)
 
-        
+
     }
 
     override fun hideLOading() {
         progresBar.invisible()
     }
 
-    override fun showEventList(data: List<EventsItem>) {
-        events = data[0]
+    override fun showEventList(data: List<EventsItem>, homeTeamsItem: TeamsItem) {
+        val events = data.get(0)
 
         txt_home_name_club.text = nameKandang
         txt_away_name_club.text = nameTandang
