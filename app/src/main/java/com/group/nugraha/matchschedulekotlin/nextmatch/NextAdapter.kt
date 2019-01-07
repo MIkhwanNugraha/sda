@@ -35,6 +35,7 @@ class NextAdapter (private val context: Context?, private val events: List<Event
                 NextDetailActivity.ID_TANDANG to events[p1].idAwayTeam,
                 NextDetailActivity.KANDANG_NAME to events[p1].strHomeTeam,
                 NextDetailActivity.TANDANG_NAME to events[p1].strAwayTeam
+                //NextDetailActivity.TANDANG_SUBTITUTE to events[p1].strAwayLineupSubtitutes
                 )
         }
     }

@@ -20,6 +20,7 @@ class NextDetailActivity : AppCompatActivity(), NextDetailView {
     var idKandang: String = ""
     var nameKandang: String = ""
     var nameTandang: String = ""
+    //var subtituteTandang: String =""
 
     private lateinit var progresBar: ProgressBar
     private lateinit var presenternd: NextDetailPresenter
@@ -32,6 +33,7 @@ class NextDetailActivity : AppCompatActivity(), NextDetailView {
         const val ID_KANDANG = "id_Kandang"
         const val KANDANG_NAME = "kandang_name"
         const val TANDANG_NAME = "tandang_name"
+        //const val TANDANG_SUBTITUTE = "tandang_subtitute"
     }
 
     //@RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
@@ -47,6 +49,7 @@ class NextDetailActivity : AppCompatActivity(), NextDetailView {
         idKandang = intent.getStringExtra(ID_KANDANG)
         nameKandang = intent.getStringExtra(KANDANG_NAME)
         nameTandang = intent.getStringExtra(TANDANG_NAME)
+        //subtituteTandang = intent.getStringExtra(TANDANG_SUBTITUTE)
 
         val request = ApiRepository()
         val gson = Gson()
@@ -61,7 +64,7 @@ class NextDetailActivity : AppCompatActivity(), NextDetailView {
     }
 
     override fun showDetail(data: List<EventsItem>, homeTeamsItem: List<TeamsItem>, awayTeamsItem: List<TeamsItem>) {
-        val events = data.get(0)
+        val events = data[0]
         val homeTeamhh = homeTeamsItem.get(0)
         val awayTeam = awayTeamsItem.get(0)
 
@@ -71,10 +74,12 @@ class NextDetailActivity : AppCompatActivity(), NextDetailView {
         txt_away_name_club.text = nameTandang
 
         txt_home_defense.text = events.strHomeLineupDefense?.replace(";", "\n")
-        txt_away_defense.text = events.strAwayLineupDefense?.replace(";", "\n")
+        //txt_away_defense.text = events.strAwayLineupDefense?.replace(";", "\n")
 
-        txt_home_formation.text = events.strHomeFormation?.replace(";", "\n")
-        txt_away_formation.text = events.strAwayFormation?.replace(";", "\n")
+        //txt_home_formation.text = events.strHomeFormation?.replace(";", "\n")
+        //txt_away_formation.text = events.strAwayFormation?.replace(";", "\n")
+
+        txt_away_subtitutes.text = events.strAwayLineupSubtitutes
 
         sembunyikanLoading()
     }

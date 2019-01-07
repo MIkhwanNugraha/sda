@@ -57,7 +57,7 @@ data class EventsItem (
 
     @SerializedName("strHomeLineupDefense")
 
-    val strHomeLineupDefense: String?,
+    val strHomeLineupDefense: String? = null,
 
 
 
@@ -73,7 +73,11 @@ data class EventsItem (
 
     @SerializedName("strHomeFormation")
 
-    val strHomeFormation: String?
+    val strHomeFormation: String?,
+
+    @SerializedName("strAwayLineupSubstitutes")
+
+    val strAwayLineupSubtitutes: String?=null
 
 
 
