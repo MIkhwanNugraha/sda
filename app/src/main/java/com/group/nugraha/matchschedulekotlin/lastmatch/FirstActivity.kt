@@ -11,9 +11,6 @@ import com.group.nugraha.matchschedulekotlin.R
 import com.group.nugraha.matchschedulekotlin.api.ApiRepository
 import com.group.nugraha.matchschedulekotlin.model.EventsItem
 import com.group.nugraha.matchschedulekotlin.model.TeamsItem
-import com.group.nugraha.matchschedulekotlin.nextmatch.NextAdapter
-import com.group.nugraha.matchschedulekotlin.nextmatch.NextPresenter
-import com.group.nugraha.matchschedulekotlin.nextmatch.NextView
 import com.group.nugraha.matchschedulekotlin.util.invisible
 import com.group.nugraha.matchschedulekotlin.util.visible
 
@@ -27,14 +24,9 @@ class FirstActivity : AppCompatActivity(), LastView {
     private lateinit var swipeRefresh: SwipeRefreshLayout
     private lateinit var recyclerViewEvent: RecyclerView
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.layouteventlast)
-
-
-
 
         progressBar = findViewById(R.id.pgBarLast)
         swipeRefresh =findViewById(R.id.swipeEventLast)
@@ -49,8 +41,6 @@ class FirstActivity : AppCompatActivity(), LastView {
         val gson = Gson()
         presenter = LastPresenter(this, apiRepository, gson)
         presenter.getEventLast(LastView.nomor_liga)
-
-
     }
 
     override fun showLoading() {
@@ -69,7 +59,5 @@ class FirstActivity : AppCompatActivity(), LastView {
     }
 
     override fun showTeamList(data: List<TeamsItem>?) {
-
     }
-
 }

@@ -11,6 +11,4 @@ data class TeamsItem(
 
     @SerializedName("strTeamBadge")
     var strTeamBadge: String? = null
-
-
 )

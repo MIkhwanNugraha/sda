@@ -5,10 +5,8 @@ import com.group.nugraha.matchschedulekotlin.api.ApiRepository
 import com.group.nugraha.matchschedulekotlin.api.ObjekSportDB
 import com.group.nugraha.matchschedulekotlin.model.EventsResponse
 import com.group.nugraha.matchschedulekotlin.model.TeamResponse
-import kotlinx.coroutines.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
-
 
 class NextDetailPresenter (private val view: NextDetailView,
                            private val apiRepository: ApiRepository,
@@ -22,7 +20,6 @@ class NextDetailPresenter (private val view: NextDetailView,
                     .doRequest(ObjekSportDB.getLookUpNDP(eventId)),
                     EventsResponse::class.java)
 
-
             val homeTeam = gson.fromJson(ApiRepository()
                     .doRequest(ObjekSportDB.getTeamDetail(homeTeamId)),
                     TeamResponse::class.java)
@@ -35,8 +32,6 @@ class NextDetailPresenter (private val view: NextDetailView,
                 view.showDetail(matchDetail.Events, homeTeam.teams, awayTeam.teams)
                 view.sembunyikanLoading()
             }
-
         }
     }
-
 }
