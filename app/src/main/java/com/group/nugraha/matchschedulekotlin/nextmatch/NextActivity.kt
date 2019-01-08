@@ -1,4 +1,4 @@
-package com.group.nugraha.matchschedulekotlin.lastmatch
+package com.group.nugraha.matchschedulekotlin.nextmatch
 
 import android.os.Bundle
 import android.support.v4.widget.SwipeRefreshLayout
@@ -14,33 +14,34 @@ import com.group.nugraha.matchschedulekotlin.model.TeamsItem
 import com.group.nugraha.matchschedulekotlin.util.invisible
 import com.group.nugraha.matchschedulekotlin.util.visible
 
-class FirstActivity : AppCompatActivity(), LastView {
 
-    private var eventsLast: MutableList<EventsItem> = mutableListOf()
+class NextActivity : AppCompatActivity(), NextView {
 
-    private lateinit var presenter: LastPresenter
-    private lateinit var nAdapter: LastAdapter
+    private var eventsNext: MutableList<EventsItem> = mutableListOf()
+
+    private lateinit var presenter: NextPresenter
+    private lateinit var nAdapter: NextAdapter
     private lateinit var progressBar: ProgressBar
     private lateinit var swipeRefresh: SwipeRefreshLayout
     private lateinit var recyclerViewEvent: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.layouteventlast)
+        setContentView(R.layout.layouteventnext)
 
-        progressBar = findViewById(R.id.pgBarLast)
-        swipeRefresh =findViewById(R.id.swipeEventLast)
-        recyclerViewEvent = findViewById(R.id.rvEventLast)
+        progressBar = findViewById(R.id.pgBarNext)
+        swipeRefresh =findViewById(R.id.swipeEventNext)
+        recyclerViewEvent = findViewById(R.id.rvEventNext)
 
         val layoutManager: RecyclerView.LayoutManager = GridLayoutManager(this, 1)
         recyclerViewEvent.layoutManager = layoutManager
-        nAdapter = LastAdapter(this, eventsLast)
+        nAdapter = NextAdapter(this, eventsNext)
         recyclerViewEvent.adapter = nAdapter
 
         val apiRepository = ApiRepository()
         val gson = Gson()
-        presenter = LastPresenter(this, apiRepository, gson)
-        presenter.getEventLast(LastView.nomor_liga)
+        presenter = NextPresenter(this, apiRepository, gson)
+        presenter.getEventNext(NextView.nomor_liga)
     }
 
     override fun showLoading() {
@@ -53,8 +54,8 @@ class FirstActivity : AppCompatActivity(), LastView {
 
     override fun showEventList(data: List<EventsItem>) {
         swipeRefresh.isRefreshing = false
-        eventsLast.clear()
-        eventsLast.addAll(data)
+        eventsNext.clear()
+        eventsNext.addAll(data)
         nAdapter.notifyDataSetChanged()
     }
 

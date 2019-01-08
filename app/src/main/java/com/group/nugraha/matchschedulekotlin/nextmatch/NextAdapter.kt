@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.group.nugraha.matchschedulekotlin.R
 import com.group.nugraha.matchschedulekotlin.model.EventsItem
-import com.group.nugraha.matchschedulekotlin.nextmatch.detail.NextDetailActivity
+import com.group.nugraha.matchschedulekotlin.detail.NextDetailActivity
 import org.jetbrains.anko.startActivity
 import java.text.SimpleDateFormat
 import java.util.*

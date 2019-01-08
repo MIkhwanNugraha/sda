@@ -16,9 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".lastmatch.FirstActivity"/>
-        <activity android:name=".nextmatch.SecondActivity"/>
-        <activity android:name=".nextmatch.detail.NextDetailActivity"/>
+        <activity android:name=".lastmatch.LastActivity"/>
+        <activity android:name=".nextmatch.NextActivity"/>
+        <activity android:name="com.group.nugraha.matchschedulekotlin.detail.NextDetailActivity"/>
     </application>
 
 </manifest>

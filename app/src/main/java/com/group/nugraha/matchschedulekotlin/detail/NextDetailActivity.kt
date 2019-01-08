@@ -1,4 +1,4 @@
-package com.group.nugraha.matchschedulekotlin.nextmatch.detail
+package com.group.nugraha.matchschedulekotlin.detail
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity

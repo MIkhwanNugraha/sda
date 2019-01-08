@@ -1,4 +1,4 @@
-package com.group.nugraha.matchschedulekotlin.nextmatch.detail
+package com.group.nugraha.matchschedulekotlin.detail
 
 import com.group.nugraha.matchschedulekotlin.model.EventsItem
 import com.group.nugraha.matchschedulekotlin.model.TeamsItem
