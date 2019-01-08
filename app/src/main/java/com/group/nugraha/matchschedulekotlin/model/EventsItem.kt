@@ -73,11 +73,16 @@ data class EventsItem (
 
     @SerializedName("strHomeFormation")
 
-    val strHomeFormation: String?,
+    val strHomeFormation: String?=null,
+
 
     @SerializedName("strAwayLineupSubstitutes")
 
-    val strAwayLineupSubtitutes: String?=null
+    val strAwayLineupSubtitutes: String?=null,
+
+    @SerializedName("strHomeLineupSubstitutes")
+
+    val strHomeLineupSubtitutes: String?=null
 
 
 

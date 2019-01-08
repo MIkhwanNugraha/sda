@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import com.group.nugraha.matchschedulekotlin.R.color.colorAccent
+import com.group.nugraha.matchschedulekotlin.lastmatch.FirstActivity
 import com.group.nugraha.matchschedulekotlin.nextmatch.SecondActivity
 import org.jetbrains.anko.*
 

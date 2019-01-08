@@ -63,10 +63,10 @@ class NextDetailActivity : AppCompatActivity(), NextDetailView {
         progresBar.invisible()
     }
 
-    override fun showDetail(data: List<EventsItem>, homeTeamsItem: List<TeamsItem>, awayTeamsItem: List<TeamsItem>) {
-        val events = data[0]
-        val homeTeamhh = homeTeamsItem.get(0)
-        val awayTeam = awayTeamsItem.get(0)
+    override fun showDetail(matchDetails: List<EventsItem>, homeTeams: List<TeamsItem>, awayTeams: List<TeamsItem>) {
+        val events = matchDetails.get(0)
+        val homeTeamhh = homeTeams.get(0)
+        val awayTeam = awayTeams.get(0)
 
         Picasso.get().load(homeTeamhh.strTeamBadge).into(img_home)
         Picasso.get().load(awayTeam.strTeamBadge).into(img_away)
@@ -74,12 +74,13 @@ class NextDetailActivity : AppCompatActivity(), NextDetailView {
         txt_away_name_club.text = nameTandang
 
         txt_home_defense.text = events.strHomeLineupDefense?.replace(";", "\n")
-        //txt_away_defense.text = events.strAwayLineupDefense?.replace(";", "\n")
+        txt_away_defense.text = events.strAwayLineupDefense?.replace(";", "\n")
 
         //txt_home_formation.text = events.strHomeFormation?.replace(";", "\n")
         //txt_away_formation.text = events.strAwayFormation?.replace(";", "\n")
 
         txt_away_subtitutes.text = events.strAwayLineupSubtitutes
+        txt_home_substitutes.text = events.strHomeLineupSubtitutes
 
         sembunyikanLoading()
     }
