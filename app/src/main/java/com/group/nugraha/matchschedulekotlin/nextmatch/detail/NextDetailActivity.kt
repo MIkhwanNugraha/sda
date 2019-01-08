@@ -70,17 +70,19 @@ class NextDetailActivity : AppCompatActivity(), NextDetailView {
 
         Picasso.get().load(homeTeamhh.strTeamBadge).into(img_home)
         Picasso.get().load(awayTeam.strTeamBadge).into(img_away)
-        txt_home_name_club.text = nameKandang
-        txt_away_name_club.text = nameTandang
+        teks_home_name_club.text = nameKandang
+        teks_away_name_club.text = nameTandang
 
-        txt_home_defense.text = events.strHomeLineupDefense?.replace(";", "\n")
-        txt_away_defense.text = events.strAwayLineupDefense?.replace(";", "\n")
+        teks_home_goals.text = events.strHomeGoalDetails?.replace(";", "\n")
+        teks_away_goals.text = events.strAwayGoalsDetails?.replace(";", "\n")
 
-        //txt_home_formation.text = events.strHomeFormation?.replace(";", "\n")
-        //txt_away_formation.text = events.strAwayFormation?.replace(";", "\n")
+        teks_home_defense.text = events.strHomeLineupDefense?.replace(";", "\n")
+        teks_away_defense.text = events.strAwayLineupDefense?.replace(";", "\n")
 
-        txt_away_subtitutes.text = events.strAwayLineupSubtitutes
-        txt_home_substitutes.text = events.strHomeLineupSubtitutes
+
+
+        teks_away_subtitutes.text = events.strAwayLineupSubtitutes
+        teks_home_substitutes.text = events.strHomeLineupSubtitutes
 
         sembunyikanLoading()
     }

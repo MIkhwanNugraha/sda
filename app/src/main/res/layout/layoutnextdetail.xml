@@ -49,7 +49,7 @@
                                 android:paddingTop="10dp" />
 
                         <TextView
-                                android:id="@+id/txt_home_name_club"
+                                android:id="@+id/teks_home_name_club"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -84,7 +84,7 @@
                                 android:paddingTop="10dp" />
 
                         <TextView
-                                android:id="@+id/txt_away_name_club"
+                                android:id="@+id/teks_away_name_club"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -120,7 +120,7 @@
                             android:orientation="horizontal">
 
                         <TextView
-                                android:id="@+id/txt_home_goals"
+                                android:id="@+id/teks_home_goals"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
@@ -135,7 +135,7 @@
                                 android:textColor="@color/background" />
 
                         <TextView
-                                android:id="@+id/txt_away_goals"
+                                android:id="@+id/teks_away_goals"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
@@ -143,55 +143,13 @@
 
                     </LinearLayout>
 
-                    <LinearLayout
-                            android:id="@+id/lnr_shots"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginBottom="10dp"
-                            android:orientation="horizontal">
 
-                        <TextView
-                                android:id="@+id/txt_home_shots"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:gravity="start" />
-
-                        <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:text="shots"
-                                android:textColor="@color/background" />
-
-                        <TextView
-                                android:id="@+id/txt_away_shots"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:gravity="end" />
-
-                    </LinearLayout>
 
                     <TableLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:weightSum="1">
 
-                        <TableRow
-                                android:background="@drawable/background_square"
-                                android:gravity="center">
-
-                            <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center_horizontal"
-                                    android:padding="5dip"
-                                    android:text="lineups" />
-
-                        </TableRow>
                     </TableLayout>
 
                     <LinearLayout
@@ -202,7 +160,7 @@
                             android:orientation="horizontal">
 
                         <TextView
-                                android:id="@+id/txt_home_defense"
+                                android:id="@+id/teks_home_defense"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
@@ -217,69 +175,7 @@
                                 android:textColor="@color/background" />
 
                         <TextView
-                                android:id="@+id/txt_away_defense"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:gravity="end" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                            android:id="@+id/lnr_midfield"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp"
-                            android:orientation="horizontal">
-
-                        <TextView
-                                android:id="@+id/txt_home_midfield"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:gravity="start" />
-
-                        <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:text="midfield"
-                                android:textColor="@color/background" />
-
-                        <TextView
-                                android:id="@+id/txt_away_midfield"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:gravity="end" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                            android:id="@+id/lnr_forward"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp"
-                            android:orientation="horizontal">
-
-                        <TextView
-                                android:id="@+id/txt_home_forward"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:gravity="start" />
-
-                        <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:text="forward"
-                                android:textColor="@color/background" />
-
-                        <TextView
-                                android:id="@+id/txt_away_forward"
+                                android:id="@+id/teks_away_defense"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
@@ -295,7 +191,7 @@
 
 
                         <TextView
-                                android:id="@+id/txt_home_substitutes"
+                                android:id="@+id/teks_home_substitutes"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
@@ -310,7 +206,7 @@
                                 android:textColor="@color/background" />
 
                         <TextView
-                                android:id="@+id/txt_away_subtitutes"
+                                android:id="@+id/teks_away_subtitutes"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
