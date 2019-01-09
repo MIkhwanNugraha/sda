@@ -3,7 +3,7 @@ package com.group.nugraha.matchschedulekotlin.detail
 import com.group.nugraha.matchschedulekotlin.model.EventsItem
 import com.group.nugraha.matchschedulekotlin.model.TeamsItem
 
-interface NextDetailView {
+interface DetailView {
     fun tunjukkanLoading()
     fun sembunyikanLoading()
     fun showDetail(matchDetails: List<EventsItem>,

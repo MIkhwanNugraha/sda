@@ -8,9 +8,9 @@ import com.group.nugraha.matchschedulekotlin.model.TeamResponse
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 
-class NextDetailPresenter (private val view: NextDetailView,
-                           private val apiRepository: ApiRepository,
-                           private val gson: Gson){
+class DetailPresenter (private val view: DetailView,
+                       private val apiRepository: ApiRepository,
+                       private val gson: Gson){
 
     fun getEventDetail(eventId: String?, homeTeamId: String?, awayTeamId: String?){
         view.tunjukkanLoading()

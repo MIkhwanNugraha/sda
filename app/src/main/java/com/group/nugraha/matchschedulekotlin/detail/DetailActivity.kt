@@ -13,7 +13,7 @@ import com.group.nugraha.matchschedulekotlin.util.visible
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.layoutdetail.*
 
-class NextDetailActivity : AppCompatActivity(), NextDetailView {
+class DetailActivity : AppCompatActivity(), DetailView {
     var idEvent: String = ""
     var idTandang: String = ""
     var idKandang: String = ""
@@ -21,7 +21,7 @@ class NextDetailActivity : AppCompatActivity(), NextDetailView {
     var nameTandang: String = ""
 
     private lateinit var progresBar: ProgressBar
-    private lateinit var presenternd: NextDetailPresenter
+    private lateinit var presenternd: DetailPresenter
 
     companion object {
         const val ID_EVENTS = "id_events"
@@ -45,7 +45,7 @@ class NextDetailActivity : AppCompatActivity(), NextDetailView {
 
         val request = ApiRepository()
         val gson = Gson()
-        presenternd = NextDetailPresenter(this, request, gson)
+        presenternd = DetailPresenter(this, request, gson)
         presenternd.getEventDetail(idEvent, idKandang, idTandang)
     }
 

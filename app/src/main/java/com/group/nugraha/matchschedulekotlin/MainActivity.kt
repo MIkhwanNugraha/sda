@@ -7,6 +7,7 @@ import android.support.v4.content.ContextCompat
 import com.group.nugraha.matchschedulekotlin.R.color.colorAccent
 import com.group.nugraha.matchschedulekotlin.lastmatch.LastActivity
 import com.group.nugraha.matchschedulekotlin.nextmatch.NextActivity
+import com.group.nugraha.matchschedulekotlin.preferred.PreferredActivity
 import org.jetbrains.anko.*
 
 class MainActivity : AppCompatActivity() {
@@ -36,6 +37,16 @@ class MainActivity : AppCompatActivity() {
                     textColor = Color.WHITE
                     setOnClickListener {
                         startActivity<NextActivity>()
+                    }
+                }.lparams(matchParent){
+                    topMargin = dip(5)
+                }
+
+                button("Preferred"){
+                    backgroundColor = ContextCompat.getColor(context,colorAccent)
+                    textColor = Color.WHITE
+                    setOnClickListener {
+                        startActivity<PreferredActivity>()
                     }
                 }.lparams(matchParent){
                     topMargin = dip(5)

@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.group.nugraha.matchschedulekotlin.R
 import com.group.nugraha.matchschedulekotlin.model.EventsItem
-import com.group.nugraha.matchschedulekotlin.detail.NextDetailActivity
+import com.group.nugraha.matchschedulekotlin.detail.DetailActivity
 import org.jetbrains.anko.startActivity
 import java.text.SimpleDateFormat
 import java.util.*
@@ -26,12 +26,12 @@ class LastAdapter (private val context: Context?, private val events: List<Event
     override fun onBindViewHolder(p0: LastHolder, p1: Int) {
         p0.bindItem(events [p1])
         p0.itemView.setOnClickListener{
-            context?.startActivity<NextDetailActivity>(
-                NextDetailActivity.ID_EVENTS to events[p1].idEvent,
-                NextDetailActivity.ID_KANDANG to events[p1].idHomeTeam,
-                NextDetailActivity.ID_TANDANG to events[p1].idAwayTeam,
-                NextDetailActivity.KANDANG_NAME to events[p1].strHomeTeam,
-                NextDetailActivity.TANDANG_NAME to events[p1].strAwayTeam)
+            context?.startActivity<DetailActivity>(
+                DetailActivity.ID_EVENTS to events[p1].idEvent,
+                DetailActivity.ID_KANDANG to events[p1].idHomeTeam,
+                DetailActivity.ID_TANDANG to events[p1].idAwayTeam,
+                DetailActivity.KANDANG_NAME to events[p1].strHomeTeam,
+                DetailActivity.TANDANG_NAME to events[p1].strAwayTeam)
         }
     }
 
