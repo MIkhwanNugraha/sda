@@ -22,7 +22,7 @@ class NextActivity : AppCompatActivity(), NextView {
     private lateinit var presenter: NextPresenter
     private lateinit var nAdapter: NextAdapter
     private lateinit var progressBar: ProgressBar
-    private lateinit var swipeRefresh: SwipeRefreshLayout
+    //private lateinit var swipeRefresh: SwipeRefreshLayout
     private lateinit var recyclerViewEvent: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +30,7 @@ class NextActivity : AppCompatActivity(), NextView {
         setContentView(R.layout.layouteventnext)
 
         progressBar = findViewById(R.id.pgBarNext)
-        swipeRefresh =findViewById(R.id.swipeEventNext)
+        //swipeRefresh =findViewById(R.id.swipeEventNext)
         recyclerViewEvent = findViewById(R.id.rvEventNext)
 
         val layoutManager: RecyclerView.LayoutManager = GridLayoutManager(this, 1)
@@ -53,7 +53,7 @@ class NextActivity : AppCompatActivity(), NextView {
     }
 
     override fun showEventList(data: List<EventsItem>) {
-        swipeRefresh.isRefreshing = false
+        //swipeRefresh.isRefreshing = false
         eventsNext.clear()
         eventsNext.addAll(data)
         nAdapter.notifyDataSetChanged()

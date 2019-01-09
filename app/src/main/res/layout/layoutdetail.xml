@@ -131,7 +131,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:text="goals"
+                                android:text="@string/Goals"
                                 android:textColor="@color/background" />
 
                         <TextView
@@ -169,7 +169,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:text="defense"
+                                android:text="@string/Defense"
                                 android:textColor="@color/background" />
 
                         <TextView
@@ -200,7 +200,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:text="substitutes"
+                                android:text="@string/Substitutes"
                                 android:textColor="@color/background" />
 
                         <TextView
