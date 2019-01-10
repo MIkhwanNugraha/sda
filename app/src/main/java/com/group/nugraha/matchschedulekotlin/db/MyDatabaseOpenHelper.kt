@@ -19,7 +19,7 @@ class MyDatabaseOpenHelper (ctx: Context) : ManagedSQLiteOpenHelper
         }
     }
 
-    override fun onCreate(db: SQLiteDatabase?) {
+    override fun onCreate(db: SQLiteDatabase) {
         db.createTable(Preferred.TABLE_PREFERRED, true,
             Preferred.ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT + UNIQUE,
             Preferred.ID_EVENT to TEXT,
@@ -33,7 +33,10 @@ class MyDatabaseOpenHelper (ctx: Context) : ManagedSQLiteOpenHelper
         )
    }
 
-    override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        db.dropTable()
+    override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
+        db.dropTable(Preferred.TABLE_PREFERRED, true)
     }
 }
+
+val Context.database: MyDatabaseOpenHelper
+get() = MyDatabaseOpenHelper.getInstancez(applicationContext)
