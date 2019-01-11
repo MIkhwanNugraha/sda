@@ -106,7 +106,7 @@ class DetailActivity : AppCompatActivity(), DetailView {
             }
 
             add_to_favorite -> {
-                if (isPreferred) removeFromFavorite() else addToFavorite()
+                if (isPreferred) removeFromPreferred() else addToPreferred()
                 isPreferred = !isPreferred
                 setPreferred()
                 true
