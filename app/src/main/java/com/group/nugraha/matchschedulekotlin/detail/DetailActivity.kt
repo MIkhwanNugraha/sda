@@ -2,9 +2,13 @@ package com.group.nugraha.matchschedulekotlin.detail
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ProgressBar
 import com.google.gson.Gson
 import com.group.nugraha.matchschedulekotlin.R
+import com.group.nugraha.matchschedulekotlin.R.id.add_to_favorite
+import com.group.nugraha.matchschedulekotlin.R.menu.detail_menu
 import com.group.nugraha.matchschedulekotlin.api.ApiRepository
 import com.group.nugraha.matchschedulekotlin.model.EventsItem
 import com.group.nugraha.matchschedulekotlin.model.TeamsItem
@@ -43,10 +47,15 @@ class DetailActivity : AppCompatActivity(), DetailView {
         nameKandang = intent.getStringExtra(KANDANG_NAME)
         nameTandang = intent.getStringExtra(TANDANG_NAME)
 
+        supportActionBar?.title = "This is Detail"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         val request = ApiRepository()
         val gson = Gson()
         presenternd = DetailPresenter(this, request, gson)
         presenternd.getEventDetail(idEvent, idKandang, idTandang)
+
+        preferredState()
     }
 
     override fun sembunyikanLoading() {
@@ -77,5 +86,33 @@ class DetailActivity : AppCompatActivity(), DetailView {
 
     override fun tunjukkanLoading() {
         progresBar.visible()
+    }
+
+    private var menuItem: Menu? = null
+    private var isPreferred: Boolean = false
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(detail_menu, menu)
+        menuItem = menu
+        setPreferred()
+        return true
+    }
+
+    Override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                finish()
+                true
+            }
+
+            add_to_favorite -> {
+                if (isPreferred) removeFromFavorite() else addToFavorite()
+                isPreferred = !isPreferred
+                setPreferred()
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }
