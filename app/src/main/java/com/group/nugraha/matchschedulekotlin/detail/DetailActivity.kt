@@ -1,21 +1,32 @@
 package com.group.nugraha.matchschedulekotlin.detail
 
+import android.database.sqlite.SQLiteConstraintException
 import android.os.Bundle
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ProgressBar
 import com.google.gson.Gson
 import com.group.nugraha.matchschedulekotlin.R
+import com.group.nugraha.matchschedulekotlin.R.drawable.ic_add_to_favorites
+import com.group.nugraha.matchschedulekotlin.R.drawable.ic_added_to_favorites
 import com.group.nugraha.matchschedulekotlin.R.id.add_to_favorite
 import com.group.nugraha.matchschedulekotlin.R.menu.detail_menu
 import com.group.nugraha.matchschedulekotlin.api.ApiRepository
+import com.group.nugraha.matchschedulekotlin.db.Preferred
+import com.group.nugraha.matchschedulekotlin.db.database
 import com.group.nugraha.matchschedulekotlin.model.EventsItem
 import com.group.nugraha.matchschedulekotlin.model.TeamsItem
 import com.group.nugraha.matchschedulekotlin.util.invisible
 import com.group.nugraha.matchschedulekotlin.util.visible
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.layoutdetail.*
+import org.jetbrains.anko.db.classParser
+import org.jetbrains.anko.db.delete
+import org.jetbrains.anko.db.insert
+import org.jetbrains.anko.db.select
+import org.jetbrains.anko.design.snackbar
 
 class DetailActivity : AppCompatActivity(), DetailView {
     var idEvent: String = ""
@@ -26,6 +37,7 @@ class DetailActivity : AppCompatActivity(), DetailView {
 
     private lateinit var progresBar: ProgressBar
     private lateinit var presenternd: DetailPresenter
+    private lateinit var events: EventsItem
 
     companion object {
         const val ID_EVENTS = "id_events"
@@ -88,8 +100,20 @@ class DetailActivity : AppCompatActivity(), DetailView {
         progresBar.visible()
     }
 
+    //for submission 3
+
     private var menuItem: Menu? = null
     private var isPreferred: Boolean = false
+
+    private fun preferredState(){
+        database.use {
+            val result = select(Preferred.TABLE_PREFERRED)
+                .whereArgs("(ID_EVENT = {id})",
+                    "id" to idEvent)
+            val preferred = result.parseList(classParser<Preferred>())
+            if (!preferred.isEmpty()) isPreferred = true
+        }
+    }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(detail_menu, menu)
@@ -98,7 +122,7 @@ class DetailActivity : AppCompatActivity(), DetailView {
         return true
     }
 
-    Override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
                 finish()
@@ -115,4 +139,44 @@ class DetailActivity : AppCompatActivity(), DetailView {
             else -> super.onOptionsItemSelected(item)
         }
     }
+
+    private fun addToPreferred(){
+        try {
+            database.use {
+                insert(Preferred.TABLE_PREFERRED,
+                    Preferred.ID_EVENT to events.idEvent,
+                    Preferred.DATE_EVENT to events.dateEvent,
+                    Preferred.ID_HOME to events.idHomeTeam,
+                    Preferred.HOME_NAME to events.strHomeTeam,
+                    Preferred.HOME_SCORE to events.intHomeScore,
+                    Preferred.ID_AWAY to events.idAwayTeam,
+                    Preferred.AWAY_SCORE to events.intAwayScore,
+                    Preferred.AWAY_NAME to events.strAwayTeam)
+            }
+            progresBar.snackbar("Added to Preferred").show()
+        } catch (e: SQLiteConstraintException){
+            progresBar.snackbar(e.localizedMessage).show()
+        }
+    }
+
+    private fun removeFromPreferred(){
+        try {
+            database.use {
+                delete(Preferred.TABLE_PREFERRED,
+                    "(ID_EVENT = {id})",
+                    "id" to idEvent )
+            }
+            progresBar.snackbar("Removed from Preferred").show()
+        } catch (e: SQLiteConstraintException){
+            progresBar.snackbar(e.localizedMessage).show()
+        }
+    }
+
+    private fun setPreferred() {
+        if (isPreferred)
+            menuItem?.getItem(0)?.icon = ContextCompat.getDrawable(this, ic_added_to_favorites)
+        else
+            menuItem?.getItem(0)?.icon = ContextCompat.getDrawable(this, ic_add_to_favorites)
+    }
+
 }
