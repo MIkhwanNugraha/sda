@@ -18,7 +18,7 @@
         </activity>
         <activity android:name=".lastmatch.LastActivity"/>
         <activity android:name=".nextmatch.NextActivity"/>
-        <activity android:name="detail.DetailActivity"/>
+        <activity android:name=".detail.DetailActivity"/>
         <activity android:name=".preferred.PreferredActivity"/>
     </application>
 

@@ -59,8 +59,8 @@ class DetailActivity : AppCompatActivity(), DetailView {
         nameKandang = intent.getStringExtra(KANDANG_NAME)
         nameTandang = intent.getStringExtra(TANDANG_NAME)
 
-        supportActionBar?.title = "This is Detail"
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        //supportActionBar?.title = "This is Detail"
+        //supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val request = ApiRepository()
         val gson = Gson()
@@ -119,7 +119,7 @@ class DetailActivity : AppCompatActivity(), DetailView {
         menuInflater.inflate(detail_menu, menu)
         menuItem = menu
         setPreferred()
-        return true
+        return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
