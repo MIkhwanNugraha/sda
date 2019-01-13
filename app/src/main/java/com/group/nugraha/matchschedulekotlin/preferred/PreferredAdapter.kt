@@ -13,25 +13,25 @@ import org.jetbrains.anko.startActivity
 import java.text.SimpleDateFormat
 import java.util.*
 
-class PreferredAdapter (private val context: Context?, private val preferredz: List<Preferred>)
+class PreferredAdapter (private val context: Context?, private val preferred: MutableList<Preferred>)
     : RecyclerView.Adapter<PreferredAdapter.PLastHolder>(){
 
-    override fun onCreateViewHolder(p0: ViewGroup, p1: Int) =
+    override fun onCreateViewHolder(p0: ViewGroup, p1: Int): PLastHolder =
         PLastHolder(LayoutInflater.from(context).inflate(R.layout.list_item, p0, false))
 
     override fun getItemCount(): Int {
-        return preferredz.size
+        return preferred.size
     }
 
     override fun onBindViewHolder(p0: PLastHolder, p1: Int) {
-        p0.bindItem(preferredz [p1])
+        p0.bindItem(preferred [p1])
         p0.itemView.setOnClickListener{
             context?.startActivity<DetailActivity>(
-                DetailActivity.ID_EVENTS to preferredz[p1].eventId,
-                DetailActivity.ID_KANDANG to preferredz[p1].homeId,
-                DetailActivity.ID_TANDANG to preferredz[p1].awayId,
-                DetailActivity.KANDANG_NAME to preferredz[p1].homeName,
-                DetailActivity.TANDANG_NAME to preferredz[p1].awayName)
+                DetailActivity.ID_EVENTS to preferred[p1].eventId,
+                DetailActivity.ID_KANDANG to preferred[p1].homeId,
+                DetailActivity.ID_TANDANG to preferred[p1].awayId,
+                DetailActivity.TANDANG_NAME to preferred[p1].awayName,
+                DetailActivity.KANDANG_NAME to preferred[p1].homeName)
         }
     }
 
@@ -42,16 +42,16 @@ class PreferredAdapter (private val context: Context?, private val preferredz: L
         private val homeScore = view.findViewById<TextView>(R.id.strHomeScore)
         private val awayScore = view.findViewById<TextView>(R.id.strAwayScore)
 
-        fun bindItem(preferredy: Preferred){
+        fun bindItem(preferred: Preferred){
             val formatDate = SimpleDateFormat("yyy-MM-dd", Locale.getDefault())
-            val date = formatDate.parse(preferredy.eventDate)
+            val date = formatDate.parse(preferred.eventDate)
             val dateText = SimpleDateFormat("EEEE, dd-MM-yyyy", Locale.getDefault())
                 .format(date).toString()
             dateEvents.text = dateText
-            strAway.text = preferredy.awayName
-            strHome.text = preferredy.homeName
-            homeScore.text = preferredy.homeScore
-            awayScore.text = preferredy.awayScore
+            strAway.text = preferred.awayName
+            strHome.text = preferred.homeName
+            homeScore.text = preferred.homeScore
+            awayScore.text = preferred.awayScore
         }
     }
 }

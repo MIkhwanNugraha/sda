@@ -1,5 +1,6 @@
 package com.group.nugraha.matchschedulekotlin.preferred
 
+import android.content.Context
 import android.os.Bundle
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.app.AppCompatActivity
@@ -9,6 +10,8 @@ import android.widget.ProgressBar
 import com.group.nugraha.matchschedulekotlin.R
 import com.group.nugraha.matchschedulekotlin.db.Preferred
 import com.group.nugraha.matchschedulekotlin.db.database
+import kotlinx.coroutines.selects.select
+import org.jetbrains.anko.db.classParser
 import org.jetbrains.anko.support.v4.onRefresh
 import java.util.ArrayList
 
@@ -29,7 +32,7 @@ class PreferredActivity : AppCompatActivity() {
         val layoutManager: RecyclerView.LayoutManager = GridLayoutManager(this, 1)
         rvPreferred.layoutManager = layoutManager
 
-        adapter = PreferredAdapter(this, preferred as ArrayList<Preferred>)
+        adapter = PreferredAdapter(Context, preferred as ArrayList<Preferred>)
         rvPreferred.adapter = adapter
         showPreferred()
 
@@ -41,7 +44,12 @@ class PreferredActivity : AppCompatActivity() {
     }
 
     private fun showPreferred(){
-        this?.database?.use{
+        context?.database?.use{
+            swipeRefresh.isRefreshing = false
+            val results = select(Preferred.TABLE_PREFERRED)
+            val favoriteee = results.parseList(classParser<Preferred>())
+            preferred.addAll(favoriteee)
+            adapter.notifyDataSetChanged()
 
         }
     }
