@@ -29,7 +29,7 @@ import org.jetbrains.anko.db.select
 import org.jetbrains.anko.design.snackbar
 
 class DetailActivity : AppCompatActivity(), DetailView {
-    var idEvent: String = ""
+    private var idEvent: String = ""
     var idTandang: String = ""
     var idKandang: String = ""
     var nameKandang: String = ""
@@ -59,8 +59,8 @@ class DetailActivity : AppCompatActivity(), DetailView {
         nameKandang = intent.getStringExtra(KANDANG_NAME)
         nameTandang = intent.getStringExtra(TANDANG_NAME)
 
-        //supportActionBar?.title = "This is Detail"
-        //supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "This is Detail"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val request = ApiRepository()
         val gson = Gson()
@@ -105,15 +105,7 @@ class DetailActivity : AppCompatActivity(), DetailView {
     private var menuItem: Menu? = null
     private var isPreferred: Boolean = false
 
-    private fun preferredState(){
-        database.use {
-            val result = select(Preferred.TABLE_PREFERRED)
-                .whereArgs("(ID_EVENT = {id})",
-                    "id" to idEvent)
-            val preferred = result.parseList(classParser<Preferred>())
-            if (!preferred.isEmpty()) isPreferred = true
-        }
-    }
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(detail_menu, menu)
@@ -137,6 +129,16 @@ class DetailActivity : AppCompatActivity(), DetailView {
             }
 
             else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun preferredState(){
+        database.use {
+            val result = select(Preferred.TABLE_PREFERRED)
+                .whereArgs("(ID_EVENT = {id})",
+                    "id" to idEvent)
+            val mypreferred = result.parseList(classParser<Preferred>())
+            if (!mypreferred.isEmpty()) isPreferred = true
         }
     }
 
