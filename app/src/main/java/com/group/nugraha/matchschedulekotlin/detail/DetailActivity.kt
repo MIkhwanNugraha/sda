@@ -75,11 +75,11 @@ class DetailActivity : AppCompatActivity(), DetailView {
     }
 
     override fun showDetail(matchDetails: List<EventsItem>, homeTeams: List<TeamsItem>, awayTeams: List<TeamsItem>) {
-        val events = matchDetails[0]
-        val homeTeamhh = homeTeams[0]
+        events = matchDetails[0]
+        val homeTeam = homeTeams[0]
         val awayTeam = awayTeams[0]
 
-        Picasso.get().load(homeTeamhh.strTeamBadge).into(img_home)
+        Picasso.get().load(homeTeam.strTeamBadge).into(img_home)
         Picasso.get().load(awayTeam.strTeamBadge).into(img_away)
         teks_home_name_club.text = nameKandang
         teks_away_name_club.text = nameTandang
